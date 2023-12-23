@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:plate_pilot/models/category.dart';
+import 'package:plate_pilot_riverpod/models/category.dart';
+
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({

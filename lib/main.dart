@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:plate_pilot_riverpod/screens/tabs.dart';
 
 final theme = ThemeData(
@@ -13,7 +13,11 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const PlatePilotRiverpod());
+  runApp(
+    const ProviderScope(
+      child: PlatePilotRiverpod(),
+    ),
+  );
 }
 
 class PlatePilotRiverpod extends StatelessWidget {
@@ -25,7 +29,7 @@ class PlatePilotRiverpod extends StatelessWidget {
       // themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       theme: theme,
-      home: const Tabs(),
+      home: Tabs(),
     );
   }
 }

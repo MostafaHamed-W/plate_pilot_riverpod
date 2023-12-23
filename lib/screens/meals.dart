@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:plate_pilot/models/meal.dart';
-import 'package:plate_pilot/screens/meal_details.dart';
-import 'package:plate_pilot/widgets/meal_item.dart';
+import 'package:plate_pilot_riverpod/models/meal.dart';
+import 'package:plate_pilot_riverpod/screens/meal_details.dart';
+import 'package:plate_pilot_riverpod/widgets/meal_item.dart';
+
 
 class Meals extends StatelessWidget {
   const Meals({super.key, required this.meals, this.title, required this.onToggleFavoutiteMeal});

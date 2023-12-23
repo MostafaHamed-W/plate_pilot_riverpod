@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:plate_pilot_riverpod/data/dummy_data.dart';
+import 'package:plate_pilot_riverpod/models/category.dart';
+import 'package:plate_pilot_riverpod/models/meal.dart';
+import 'package:plate_pilot_riverpod/screens/meals.dart';
+import 'package:plate_pilot_riverpod/widgets/category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen(
