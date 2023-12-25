@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:plate_pilot_riverpod/models/meal.dart';
+import 'package:plate_pilot_riverpod/providers/favourite_meals_provider.dart';
 
 import 'package:transparent_image/transparent_image.dart';
 
-class MealsDetails extends StatelessWidget {
+class MealsDetails extends ConsumerWidget {
   const MealsDetails({super.key, required this.meal, required this.onToggleFavoutiteMeal});
 
   final Meal meal;
   final void Function(Meal meal) onToggleFavoutiteMeal;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     bool isFavoutite = false;
     return Scaffold(
       appBar: AppBar(
@@ -18,7 +20,15 @@ class MealsDetails extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              onToggleFavoutiteMeal(meal);
+              final mealText = ref.read(favouriteMealsProvider.notifier).toggleMealFavourite(meal);
+              ScaffoldMessenger.of(context).clearSnackBars();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  showCloseIcon: true,
+                  content: Text(mealText),
+                ),
+              );
             },
             icon: isFavoutite == true
                 ? const Icon(Icons.star, size: 30)
