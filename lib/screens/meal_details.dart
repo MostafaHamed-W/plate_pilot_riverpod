@@ -13,7 +13,8 @@ class MealsDetails extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    bool isFavoutite = false;
+    final favouriteMeals = ref.watch(favouriteMealsProvider);
+    bool isFavoutite = favouriteMeals.contains(meal);
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
